@@ -1,0 +1,15 @@
+<hazelcast xsi:schemaLocation="http://www.hazelcast.com/schema/config http://www.hazelcast.com/schema/config/hazelcast-config-3.3.xsd"
+	xmlns="http://www.hazelcast.com/schema/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<properties>
+		<property name="hazelcast.logging.type">slf4j</property>
+	</properties>
+
+	<map name="shiro-activeSessionCache">
+		<!-- Use sticky sessions with your load balancer for best performance. -->
+		<async-backup-count>1</async-backup-count>
+		<!-- 30 minutes = session timeout. No need to use Shiro's session invalidation scheduler! -->
+		<time-to-live-seconds>1800</time-to-live-seconds>
+	</map>
+
+</hazelcast>
